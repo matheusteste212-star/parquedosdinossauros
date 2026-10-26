@@ -1,0 +1,48 @@
+<%- include('../cabecalho')%>
+
+<div>
+    <tr><a href="../dinossauro"> ← Voltar </a></tr> 
+    <h3>Novo Dinossauro</h3>
+
+    <form>
+        <p>ID</p>
+        <input type="text" name="id" value="<%=dinossauro.id%>">
+        <p>Espécie</p>
+        <select name="especie">
+            <option value="">Selecione...</option>
+            <option value="Theropoda">Theropoda</option>
+            <option value="Sauropoda">Sauropoda</option>
+            <option value="Ceratopsia">Ceratopsia</option>
+            <option value="Ornithopoda">Ornithopoda</option>
+        </select>
+        <br>
+
+        <p>Descrição</p>
+        <type="text" name="descricao" value="<%=dinossauro.descricao%>"></textarea>
+        <br>
+
+        <p>Altura (metros)</p>
+        <input type="number" name="altura" value="<%=dinossauro.altura%>">
+        <p>Peso (toneladas)</p>
+        <input type="number" name="peso" value="<%=dinossauro.peso%>">
+        <p>Ano de Descoberta</p>
+        <input type="number" name="anoDescoberta" value="<%=dinossauro.anoDescoberta%>">
+        <br>
+
+        <p>Dieta</p>
+        <select name="dieta"> 
+            <option value="">Selecione...</option>
+            <option value="Carnívoro">Carnívoro</option>
+            <option value="Herbívoro">Herbívoro</option>
+            <option value="Onívoro">Onívoro</option>
+        </select>
+        <br><br>
+
+        <button type="submit">Adicionar</button>
+        <button type="reset">Cancelar</button>
+
+    </form>
+
+</div>
+</body>
+</html>
