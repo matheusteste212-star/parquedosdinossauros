@@ -64,6 +64,20 @@ app.get('/especie/upd/:id',  async (req, res) => {
 
 })
 
+app.get('/paleontologo/upd/:id',  async (req, res) => {
+ const paleontologos = await Paleontologo.findById(req.params.id)
+ res.render("paleontologo/upd", {paleontologos});
+
+})
+
+app.get('/paleontologo/del/:id',  async (req, res) => {
+  await Paleontologo.findByIdAndDelete(req.params.id)
+ const paleontologos = await Paleontologo.find()
+ res.render("paleontologo/lst", {paleontologos});
+
+})
+
+
 app.get('/dinossauro/upd/:id',  async (req, res) => {
  //listar espécies
  const dinossauro = await Dinossauro.findById(req.params.id)
@@ -78,8 +92,8 @@ app.get('/especie/add',  (req, res) => {
 
 app.get('/paleontologo',  async (req, res) => {
  //listar espécies
- const paleontologo = await Paleontologo.find()
- res.render("paleontologo/lst", {paleontologo});
+ const paleontologos = await Paleontologo.find()
+ res.render("paleontologo/lst", {paleontologos});
 
 })
 
@@ -101,12 +115,21 @@ app.post('/paleontologo/add',  async (req, res) => {
   res.render("paleontologo/add");
 })
 
+
 app.post('/especie/upd/:id',  async (req, res) => {
   const {id,nome,periodo} = req.body
   await Especie.findByIdAndUpdate(id,{nome,periodo})
 
   const especies = await Especie.find()
   res.render("especie/lst", {especies});
+})
+
+app.post('/paleontologo/upd/:id',  async (req, res) => {
+  const {id,nome,nascimento,descoberta} = req.body
+  await Paleontologo.findByIdAndUpdate(id,{nome,nascimento,descoberta})
+
+  const paleontologos = await Paleontologo.find()
+  res.render("paleontologo/lst", {paleontologos});
 })
 
 app.post('/dinossauro/upd/:id',  async (req, res) => {

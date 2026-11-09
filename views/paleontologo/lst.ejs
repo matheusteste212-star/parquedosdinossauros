@@ -2,7 +2,7 @@
     <div>
         <h3>Paleontologistas</h3>
         <p>Maiores paleontólogos da história da descoberta dos fosséis de dinossauro</p>
-        <a href="paleontologo/add">+ Novo Paleontólogo</a>
+        <a href="/paleontologo/add">+ Novo Paleontólogo</a>
 
         <table>
             <tr>
@@ -16,11 +16,12 @@
                     <h3>Descoberta</h3>
                 </td>
             </tr>
-            <%paleontologo.forEach(paleontologo=>{%>
+            <%paleontologos.forEach(paleontologo=>{%>
                 <tr>
                     <td>
                         <p>
                             <%=paleontologo.nome%>
+
                         </p>
                     </td>
                     <td>
@@ -33,8 +34,10 @@
                             <%=paleontologo.descoberta%>
                         </p>
                     </td>
-                    <a href="">✏️</a>
-                    <a href="">🗑️</a>
+                    <td>
+                        <a href="/paleontologo/upd/<%=paleontologo.id%>">✏️</a>
+                        <a href="/paleontologo/del/<%=paleontologo.id%>">🗑️</a>
+                    </td>
                 </tr>
                 <%})%>
         </table>
